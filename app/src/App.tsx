@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   FormControl,
@@ -26,16 +26,17 @@ const App = () => {
   ]);
 
   async function loadBlockchain() {
-    const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
+    const web3 = new Web3(Web3.givenProvider || "HTTP://127.0.0.1:7545");
     const network = await web3.eth.net.getNetworkType();
     const accounts = await web3.eth.getAccounts();
+    const account = (await web3.eth.getAccounts())[0];
     setAccount(accounts);
-    console.log(accounts);
+    console.log(account);
   }
 
   useEffect(() => {
-    // loadBlockchain();
-  });
+    loadBlockchain();
+  }, []);
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
