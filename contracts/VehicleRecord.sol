@@ -1,10 +1,10 @@
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.7.0 <0.9.0;
+pragma solidity ^0.5.0;
+pragma experimental ABIEncoderV2;
 
 contract VehicleRecord {
     struct VehicleReport {
         address owner;
-        string VIN;
+        string vin;
         uint256 odometer;
         string service;
         uint256 timestamp;
@@ -12,7 +12,7 @@ contract VehicleRecord {
 
     VehicleReport[] reports;
 
-    constructor() {}
+    constructor() public {}
 
     function addReport(
         string memory vin,
@@ -39,7 +39,7 @@ contract VehicleRecord {
         )
     {
         VehicleReport memory report = reports[index];
-        return (report.VIN, report.odometer, report.service, report.timestamp);
+        return (report.vin, report.odometer, report.service, report.timestamp);
     }
 
     function getNumReport() public view returns (uint256) {
