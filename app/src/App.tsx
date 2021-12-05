@@ -64,6 +64,7 @@ const App = () => {
             type="text"
             value={formValues.vin}
             onChange={handleInputChange}
+            inputProps={{ "data-testid": "vin-input" }}
           />
           <TextField
             id="odometer-input"
@@ -72,6 +73,7 @@ const App = () => {
             type="number"
             value={formValues.odometer}
             onChange={handleInputChange}
+            inputProps={{ "data-testid": "odometer-input" }}
           />
           <TextField
             id="serviceReport-input"
@@ -80,6 +82,7 @@ const App = () => {
             type="text"
             value={formValues.serviceReport}
             onChange={handleInputChange}
+            inputProps={{ "data-testid": "serviceReport-input" }}
           />
           <Button variant="contained" color="primary" type="submit">
             Submit
